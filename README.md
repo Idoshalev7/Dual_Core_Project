@@ -54,10 +54,10 @@ The project demonstrates that a lightweight synchronization mechanism can provid
 
 We added four custom instructions to enable atomic operations and safe shared memory access:  
 
-1. **lr (Load-Reserved)** – Loads a word from memory and sets a reservation for that address.  
-2. **sc (Store-Conditional)** – Stores a word to memory only if the reservation is still valid and updates the **feedback register** with success (1) or failure (0).  
-3. **swap** – Atomically swaps a register value with a memory value and updates the **feedback register** with success (1) or failure (0).  
-4. **amoadd** – Atomically adds a register value to a memory value, writes the sum back, and updates the **feedback register** with success (1) or failure (0).  
+1. **LR (Load-Reserved)** – Loads a word from memory and sets a reservation for that address.  
+2. **SC (Store-Conditional)** – Stores a word to memory only if the reservation is still valid and updates the **feedback register** with success (1) or failure (0).  
+3. **SWAP** – Atomically swaps a register value with a memory value and updates the **feedback register** with success (1) or failure (0).  
+4. **AMOADD** – Atomically adds a register value to a memory value, writes the sum back, and updates the **feedback register** with success (1) or failure (0).  
 
 All three operations (`sc`, `swap`, `amoadd`) use the same **feedback register** to report success or failure, allowing software to safely retry failed operations and implement correct synchronization.
 
