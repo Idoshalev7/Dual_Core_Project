@@ -1,0 +1,68 @@
+lr R1 R0 data1    * a1
+lr R2 R0 data2    * a2
+lr R3 R0 data5    * b11 (col1 top)
+lr R4 R0 data6    * b21 (col1 bottom)
+lr R5 R0 data7    * b12 (col2 top)
+lr R6 R0 data8    * b22 (col2 bottom)
+
+
+
+add R7 R0 R0      * prod1 0
+add R8 R0 R3      * counter b11
+beqz R8 4         * skip if b11 zero
+add R7 R7 R1      * accumulate a1
+addi R8 R8 -1     * dec counter
+bnez R8 -3        * loop
+
+add R9 R0 R0      * prod2 0
+add R10 R0 R4     * counter b21
+beqz R10 4        * skip if b21 zero
+add R9 R9 R2      * accumulate a2
+addi R10 R10 -1   * dec counter
+bnez R10 -3       * loop
+
+add R11 R7 R9     * sum prod1 plus prod2
+amoadd R11 R0 data9 * store C11
+
+add R7 R0 R0      * prod1 0
+add R8 R0 R5      * counter b12
+beqz R8 4         * skip if b12 zero
+add R7 R7 R1      * accumulate a1
+addi R8 R8 -1     * dec counter
+bnez R8 -3        * loop
+
+add R9 R0 R0      * prod2 0
+add R10 R0 R6     * counter b22
+beqz R10 4        * skip if b22 zero
+add R9 R9 R2      * accumulate a2
+addi R10 R10 -1   * dec counter
+bnez R10 -3       * loop
+
+add R11 R7 R9     * sum prod1 plus prod2
+amoadd R11 R0 data10 * store C12
+
+halt              * end
+
+
+adr1:        ds 1
+adr2:        ds 1
+
+data1:       dc 0x2
+data2:       dc 0x2
+
+data3:       dc 0x3
+data4:       dc 0x3
+
+data5:       dc 0x4
+data6:       dc 0x4
+
+data7:       dc 0x3
+data8:       dc 0x3
+
+data9:       dc 0x0
+data10:      dc 0x0
+
+data11:       dc 0x0
+data12:      dc 0x0
+
+

@@ -1,0 +1,98 @@
+        lr   R10 R0 data0     * h0 = 3
+        lr   R11 R0 data1     * h1 = 6
+        lr   R12 R0 data2     * h2 = 8
+        lr   R13 R0 data3     * h3 = 10
+
+        add  R7 R0 R0         * acc = 0
+        lr   R1 R0 data4      * x0 = 1
+        add  R2 R0 R10        * h0
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        amoadd R7 R0 data9    * y0 = 3 (0x3)
+
+        add  R7 R0 R0         * acc = 0
+        lr   R1 R0 data6      * x2 = 4
+        add  R2 R0 R10        * h0
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        lr   R1 R0 data5      * x1 = 2
+        add  R2 R0 R11        * h1
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        lr   R1 R0 data4      * x0 = 1
+        add  R2 R0 R12        * h2
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        amoadd R7 R0 data11   * y2 = 32 (0x20)
+
+        add  R7 R0 R0         * acc = 0
+        lr   R1 R0 data8      * x4 = 7
+        add  R2 R0 R10        * h0
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        lr   R1 R0 data7      * x3 = 5
+        add  R2 R0 R11        * h1
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        lr   R1 R0 data6      * x2 = 4
+        add  R2 R0 R12        * h2
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        lr   R1 R0 data5      * x1 = 2
+        add  R2 R0 R13        * h3
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        amoadd R7 R0 data13   * y4 = 103 (0x67)
+
+        add  R7 R0 R0         * acc = 0
+        lr   R1 R0 data8      * x4 = 7
+        add  R2 R0 R12        * h2
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        lr   R1 R0 data7      * x3 = 5
+        add  R2 R0 R13        * h3
+        beqz R2 4
+        add  R7 R7 R1
+        addi R2 R2 -1
+        bnez R2 -3
+        amoadd R7 R0 data15   * y6 = 106 (0x6A)
+
+        halt                  * stop Core 0
+
+data0:   dc 3                 * h0
+data1:   dc 6                 * h1
+data2:   dc 8                 * h2
+data3:   dc 10                * h3
+
+data4:   dc 1                 * x0
+data5:   dc 2                 * x1
+data6:   dc 4                 * x2
+data7:   dc 5                 * x3
+data8:   dc 7                 * x4
+
+data9:   dc 0                 * y0 (Core 0 result = 3 / 0x3)
+data10:  dc 0                 * y1 (Core 1 result)
+data11:  dc 0                 * y2 (Core 0 result = 32 / 0x20)
+data12:  dc 0                 * y3 (Core 1 result)
+data13:  dc 0                 * y4 (Core 0 result = 103 / 0x67)
+data14:  dc 0                 * y5 (Core 1 result)
+data15:  dc 0                 * y6 (Core 0 result = 106 / 0x6A)
+data16:  dc 0                 * y7 (Core 1 result)
