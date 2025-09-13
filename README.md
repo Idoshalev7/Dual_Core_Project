@@ -69,7 +69,7 @@ All three operations (`sc`, `swap`, `amoadd`) use the same **feedback register**
 2. Use the custom Python assembler to convert `.txt` source files into `.data` format.  
 3. Load the `.data` files into ModelSim for simulation and functional verification.  
 4. Load the `.cod` files into the RESA environment for FPGA emulation.  
-5. Run simulations to validate correctness (ModelSim) and measure performance on hardware (FPGA).  
+5. Run simulations to validate correctness (ModelSim) and compare with emulation on hardware (FPGA).  
 
 ---
 
