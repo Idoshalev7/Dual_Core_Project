@@ -3,7 +3,7 @@
 ## Overview  
 
 This project is a final-year undergraduate project in Electrical Engineering at Tel Aviv University.  
-It presents the design, implementation, and testing of a **dual-core DLX system** with hardware support for atomic operations and shared external memory access.
+It presents the design, implementation, and testing of a **dual-core DLX system** with hardware support for atomic instructions and shared external memory.
 
 The system consists of **two DLX cores** connected to a shared external memory bus through a **SyncBox** module, which handles reservations, arbitrates access, and ensures correct operation under concurrent memory requests.  
 The design includes support for `LR`, `SC`, `SWAP`, and `AMOADD` instructions, enabling safe parallel execution on shared data.
