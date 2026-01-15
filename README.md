@@ -1,4 +1,4 @@
-# Synchronized Dual-Core DLX processor with Atomic instructions
+# Synchronized dual-core DLX processor with atomic instructions
 
 ## Overview  
 
