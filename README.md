@@ -1,4 +1,4 @@
-# Dual-Core DLX with SyncBox and Atomic Operations
+# Synchronized Dual-Core DLX processor with Atomic instructions
 
 ## Overview  
 
